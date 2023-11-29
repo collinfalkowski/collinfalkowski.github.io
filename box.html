@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generated Gift</title>
     <style>
-        body, html {
+        body,
+        html {
             height: 100%;
             margin: 0;
             padding: 0;
@@ -57,7 +59,8 @@
             z-index: 2;
         }
 
-        .box-container img, #circle {
+        .box-container img,
+        #circle {
             transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
         }
 
@@ -66,29 +69,34 @@
         }
     </style>
 </head>
+
 <body>
     <img src="open.png" alt="Open The Present" />
-    
+
     <div class="box-container" onclick="scaleCircleAndRedirect()">
         <img src="box.png" alt="Gift Box" />
     </div>
 
     <div id="circle"></div>
 
-    <a href="website.html" class="return-button">Return to Home</a>
+    <a href="index.html" class="return-button">Return to Home</a>
 
     <script>
         function scaleCircleAndRedirect() {
             var circle = document.getElementById('circle');
             var boxImg = document.querySelector('.box-container img');
 
-            circle.style.transform = 'translate(-50%, -50%) scale(40)';
+            // Calculate scale factor
+            var scale = Math.max(window.innerWidth, window.innerHeight) / 100 * 2; // 100 is the original size of the circle
+
+            circle.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
             boxImg.style.opacity = '0';
 
-            setTimeout(function() {
+            setTimeout(function () {
                 window.location.href = 'present.html';
             }, 500); // Redirect after the animations
         }
     </script>
 </body>
+
 </html>
